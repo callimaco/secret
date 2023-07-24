@@ -36,13 +36,13 @@ def main() -> None:
         if choice == answers[0]: # ls
             print('List of all the keys set so far:' + '\n' +
                  f'{", ".join(sm.list_all_keys())}', end= '\n\n')
-            cont= input('press any key to continue and q to quit...')
+            cont= input('press any key to continue and q to quit... ')
             if cont == answers[3]:
                 break
         
         elif choice == answers[1]: # get
             while True:    
-                key_name = input('choose a key to get its value.. ')
+                key_name = input('choose a key to get its value... ')
                 try: 
                     key_val = sm.get_key(key_name)
                     print(f'{key_name}  =  {key_val}')
@@ -51,7 +51,7 @@ def main() -> None:
                     print(f'Value {key_name} generated the following code:' + '\n' +
                           f'{err}' + '\n')
                 finally:
-                    cont= input('press any key to continue, m for menu or q to quit...')
+                    cont= input('press any key to continue, m for menu or q to quit... ')
                     if cont == answers[3]:
                         choice = cont
                         break
@@ -61,7 +61,7 @@ def main() -> None:
             while True:
                 print('Set an enviroment variable', end='\n\n')
                 sm.set_key_from_prompt()
-                cont= input('press any key to continue, m for menu or q to quit...')
+                cont= input('press any key to continue, m for menu or q to quit... ')
                 if cont == answers[3]:
                         choice = cont
                         break

@@ -68,11 +68,3 @@ Contributions to the Python Secret Manager are welcome! If you find any issues o
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
-
-Please make sure to replace `yourusername` in the installation section with your GitHub username if you plan to publish the project on GitHub.
-
-Remember to update the README with any additional information specific to your project or implementation. Feel free to modify it as needed to best represent your work.
-
-I hope this helps! If you have any other questions or need further assistance, don't hesitate to ask. Good luck with your project!
