@@ -1,8 +1,0 @@
-Initial commit: Project setup and basic structure.
-
-This commit marks the beginning of the project. It includes:
-- Setting up the project directory and file structure.
-- Adding README.md.
-- Initializing the main script with basic functionality.
-
-The project is now ready for development and further enhancements.
