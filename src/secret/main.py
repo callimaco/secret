@@ -1,5 +1,5 @@
 import subprocess
-from secret_man import SecretManager as sm
+from secret.secret_man.secret_man import SecretManager as sm
 import time
 
 def clear() -> None:

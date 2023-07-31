@@ -1,7 +1,7 @@
 import os
 import subprocess
 import getpass
-from db_man import db
+from .low_db.db_man import db
 from mysql.connector import MySQLConnection, Error
 from typing import List
 
