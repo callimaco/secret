@@ -10,6 +10,7 @@ class db:
         self.cnx = None
     
     def __enter__(self) -> MySQLConnection:
+        
         self.cnx = mysql.connector.connect(
                                 user= self.user,
                                 password= self.password,
@@ -19,5 +20,5 @@ class db:
         return self.cnx
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        if self.cnx:        
+        if self.cnx:
             self.cnx.close()

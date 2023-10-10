@@ -44,7 +44,7 @@ def main() -> None:
             while True:    
                 key_name = input('choose a key to get its value... ')
                 try: 
-                    key_val = sm.get_key(key_name)
+                    key_val = sm.getkey(key_name)
                     print(f'{key_name}  =  {key_val}')
                 except ValueError as err:
                     clear()

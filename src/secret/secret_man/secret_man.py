@@ -1,14 +1,28 @@
 import os
 import subprocess
 import getpass
-from .low_db.db_man import db
+import mysql.connector as mtor
 from mysql.connector import MySQLConnection, Error
-from typing import List
+from typing import List, Dict
 
 class SecretManager:
+    
     _user = 'db_python_user'
     _host= 'localhost'
     _database= 'providers'
+
+    
+    @classmethod
+    def config(cls,
+               db: str,
+               user: str = _user,
+               host: str = _host) -> Dict:
+        return {
+                'user': user, 
+                'password': os.getenv(user),
+                'host': host,
+                'database': db
+                }
 
     @staticmethod
     def _list_key(cnx: MySQLConnection) -> List[str] | None:
@@ -27,12 +41,12 @@ class SecretManager:
 
     @classmethod
     def list_all_keys(cls) -> None:
-        with db(cls._user, os.getenv(cls._user), cls._host, cls._database) as cnx:
+        with mtor.connect(**cls.config(db=cls._database)) as cnx:
             return cls._list_key(cnx=cnx)
 
     @classmethod
-    def get_key(cls, name: str) -> str:
-        with db(cls._user, os.getenv(cls._user), cls._host, cls._database) as cnx:
+    def getkey(cls, name: str) -> str:
+        with mtor.connect(**cls.config(db=cls._database)) as cnx:
             env_var = cls._list_key(cnx)
             val = os.getenv(name)
             
@@ -59,7 +73,7 @@ class SecretManager:
                           
     @classmethod
     def set_key(cls, name: str, key: str) -> None:
-        with db(cls._user, os.getenv(cls._user), cls._host, cls._database) as cnx:
+        with mtor.connect(**cls.config(db=cls._database)) as cnx:
             if name in cls._list_key(cnx=cnx):
                 raise ValueError(f'{name.capitalize()} it\'s already listed')
 
